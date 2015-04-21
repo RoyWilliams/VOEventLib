@@ -1,0 +1,2188 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to VOEventLib’s documentation! &mdash; VOEventLib v0.3 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.3',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="VOEventLib v0.3 documentation" href="#" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">VOEventLib v0.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="welcome-to-voeventlib-s-documentation">
+<h1>Welcome to VOEventLib&#8217;s documentation!<a class="headerlink" href="#welcome-to-voeventlib-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The library is split into two parts. The largest part is auto-generated from
+the VOEvent schema, and presents hierarchical view of the structure, with get
+and set methods, as well as add and insert for the list based elements.
+The Vutil is a utility library that adds some sugar methods and an alternate
+representation of table by column name and row index.</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="module-VOEventLib.Vutil">
+<span id="the-vutil-utility-library"></span><h2>The Vutil utility library<a class="headerlink" href="#module-VOEventLib.Vutil" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="VOEventLib.Vutil.VOEventExportClass">
+<em class="property">class </em><tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">VOEventExportClass</tt><big>(</big><em>event</em>, <em>schemaURL</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.VOEventExportClass" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.findParam">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">findParam</tt><big>(</big><em>event</em>, <em>groupName</em>, <em>paramName</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.findParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds a Param in a given VOEvent that has the specified groupName
+and paramName. If it is a bare param, the group name is the empty string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.getParamNames">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">getParamNames</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.getParamNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a VOEvent and produces a list of pairs of group name and param name.
+For a bare param, the group name is the empty string.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.getWhereWhen">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">getWhereWhen</tt><big>(</big><em>v</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.getWhereWhen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds a dictionary of the information in the WhereWhen section:
+observatory: location of observatory (string);
+coord_system: coordinate system ID, for example UTC-FK5-GEO;
+time: ISO8601 representation of time, for example 1918-11-11T11:11:11;
+timeError: in seconds;
+longitude: in degrees, usually right ascension;
+latitiude: in degrees, usually declination;
+positionalError: positional error in degrees.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.htmlList">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">htmlList</tt><big>(</big><em>list</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.htmlList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a list of strings to an HTML &lt;ul&gt;&lt;li&gt; structure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.htmlParam">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">htmlParam</tt><big>(</big><em>g</em>, <em>p</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.htmlParam" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds an HTML table row from a Param and its enclosing Group (or None)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.makeWhereWhen">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">makeWhereWhen</tt><big>(</big><em>wwd</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.makeWhereWhen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expects a dictionary of the information in the WhereWhen section, and makes a 
+VOEvent.WhereWhen object suitable for set_WhereWhen().
+observatory: location of observatory (string);
+coord_system: coordinate system ID, for example UTC-FK5-GEO;
+time: ISO8601 representation of time, for example 1918-11-11T11:11:11;
+timeError: in seconds;
+longitude: in degrees, usually right ascension;
+latitiude: in degrees, usually declination;
+positionalError: positional error in degrees.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.paramValue">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">paramValue</tt><big>(</big><em>p</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.paramValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.parse">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">parse</tt><big>(</big><em>file</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.parse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a file and builds the VOEvent DOM.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.parseString">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">parseString</tt><big>(</big><em>inString</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.parseString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a string and builds the VOEvent DOM.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.stringVOEvent">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">stringVOEvent</tt><big>(</big><em>event</em>, <em>schemaURL='http://www.ivoa.net/xml/VOEvent/VOEvent-v2.0.xsd'</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.stringVOEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Converts a VOEvent to a string suitable for output</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.Vutil.utilityTable">
+<em class="property">class </em><tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">utilityTable</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class to represent a simple Table from VOEvent</p>
+<dl class="method">
+<dt id="VOEventLib.Vutil.utilityTable.blankTable">
+<tt class="descname">blankTable</tt><big>(</big><em>nrows</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable.blankTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>From a table template, replaces the Data section with nrows of empty TR and TD</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.Vutil.utilityTable.getByCols">
+<tt class="descname">getByCols</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable.getByCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of column vectors that represent the table.
+The key for the dict is the Field name for that column.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.Vutil.utilityTable.getTable">
+<tt class="descname">getTable</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable.getTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.Vutil.utilityTable.setValue">
+<tt class="descname">setValue</tt><big>(</big><em>name</em>, <em>irow</em>, <em>value</em>, <em>out=&lt;open file '&lt;stdout&gt;'</em>, <em>mode 'w' at 0x1004160b8&gt;</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copies a single value into a cell of the table.
+The column is identified by its name, and the row by an index 0,1,2...</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.Vutil.utilityTable.toString">
+<tt class="descname">toString</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.utilityTable.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a crude string representation of a utilityTable</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.Vutil.validate">
+<tt class="descclassname">VOEventLib.Vutil.</tt><tt class="descname">validate</tt><big>(</big><em>xmlString</em>, <em>schema='http://www.ivoa.net/xml/VOEvent/VOEvent-v2.0.xsd'</em><big>)</big><a class="headerlink" href="#VOEventLib.Vutil.validate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-VOEventLib.VOEvent">
+<span id="the-voevent-base-library"></span><h2>The VOEvent base library<a class="headerlink" href="#module-VOEventLib.VOEvent" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">AstroCoordSystem</tt><big>(</big><em>id=None</em>, <em>valueOf_=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem.get_id">
+<tt class="descname">get_id</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem.get_valueOf_">
+<tt class="descname">get_valueOf_</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem.get_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem.set_id">
+<tt class="descname">set_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem.set_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem.set_valueOf_">
+<tt class="descname">set_valueOf_</tt><big>(</big><em>valueOf_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem.set_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoordSystem.validate_idValues">
+<tt class="descname">validate_idValues</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoordSystem.validate_idValues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.AstroCoords">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">AstroCoords</tt><big>(</big><em>coord_system_id=None</em>, <em>Time=None</em>, <em>Position2D=None</em>, <em>Position3D=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.get_Position2D">
+<tt class="descname">get_Position2D</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.get_Position2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.get_Position3D">
+<tt class="descname">get_Position3D</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.get_Position3D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.get_Time">
+<tt class="descname">get_Time</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.get_Time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.get_coord_system_id">
+<tt class="descname">get_coord_system_id</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.get_coord_system_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.set_Position2D">
+<tt class="descname">set_Position2D</tt><big>(</big><em>Position2D</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.set_Position2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.set_Position3D">
+<tt class="descname">set_Position3D</tt><big>(</big><em>Position3D</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.set_Position3D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.set_Time">
+<tt class="descname">set_Time</tt><big>(</big><em>Time</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.set_Time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.set_coord_system_id">
+<tt class="descname">set_coord_system_id</tt><big>(</big><em>coord_system_id</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.set_coord_system_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.AstroCoords.validate_idValues">
+<tt class="descname">validate_idValues</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.AstroCoords.validate_idValues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Author">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Author</tt><big>(</big><em>title=None</em>, <em>shortName=None</em>, <em>logoURL=None</em>, <em>contactName=None</em>, <em>contactEmail=None</em>, <em>contactPhone=None</em>, <em>contributor=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Author information follows the IVOA curation information schema: the
+organization responsible for the packet can have a title, short
+name or acronym, and a logo. A contact person has a name, email,
+and phone number. Other contributors can also be noted.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_contactEmail">
+<tt class="descname">add_contactEmail</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_contactEmail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_contactName">
+<tt class="descname">add_contactName</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_contactName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_contactPhone">
+<tt class="descname">add_contactPhone</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_contactPhone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_contributor">
+<tt class="descname">add_contributor</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_contributor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_logoURL">
+<tt class="descname">add_logoURL</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_logoURL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_shortName">
+<tt class="descname">add_shortName</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_shortName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.add_title">
+<tt class="descname">add_title</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.add_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_contactEmail">
+<tt class="descname">get_contactEmail</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_contactEmail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_contactName">
+<tt class="descname">get_contactName</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_contactName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_contactPhone">
+<tt class="descname">get_contactPhone</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_contactPhone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_contributor">
+<tt class="descname">get_contributor</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_contributor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_logoURL">
+<tt class="descname">get_logoURL</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_logoURL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_shortName">
+<tt class="descname">get_shortName</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_shortName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.get_title">
+<tt class="descname">get_title</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.get_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_contactEmail">
+<tt class="descname">insert_contactEmail</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_contactEmail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_contactName">
+<tt class="descname">insert_contactName</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_contactName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_contactPhone">
+<tt class="descname">insert_contactPhone</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_contactPhone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_contributor">
+<tt class="descname">insert_contributor</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_contributor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_logoURL">
+<tt class="descname">insert_logoURL</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_logoURL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_shortName">
+<tt class="descname">insert_shortName</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_shortName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.insert_title">
+<tt class="descname">insert_title</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.insert_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_contactEmail">
+<tt class="descname">set_contactEmail</tt><big>(</big><em>contactEmail</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_contactEmail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_contactName">
+<tt class="descname">set_contactName</tt><big>(</big><em>contactName</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_contactName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_contactPhone">
+<tt class="descname">set_contactPhone</tt><big>(</big><em>contactPhone</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_contactPhone" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_contributor">
+<tt class="descname">set_contributor</tt><big>(</big><em>contributor</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_contributor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_logoURL">
+<tt class="descname">set_logoURL</tt><big>(</big><em>logoURL</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_logoURL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_shortName">
+<tt class="descname">set_shortName</tt><big>(</big><em>shortName</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_shortName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Author.set_title">
+<tt class="descname">set_title</tt><big>(</big><em>title</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Author.set_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Citations">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Citations</tt><big>(</big><em>EventIVORN=None</em>, <em>Description=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Citations: Follow-up Observations. This section is a sequence of
+EventIVORN elements, each of which has the IVORN of a cited
+event.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.add_EventIVORN">
+<tt class="descname">add_EventIVORN</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.add_EventIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.get_EventIVORN">
+<tt class="descname">get_EventIVORN</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.get_EventIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.insert_EventIVORN">
+<tt class="descname">insert_EventIVORN</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.insert_EventIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Citations.set_EventIVORN">
+<tt class="descname">set_EventIVORN</tt><big>(</big><em>EventIVORN</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Citations.set_EventIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Data">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Data</tt><big>(</big><em>TR=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Data" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="VOEventLib.VOEvent.Data.add_TR">
+<tt class="descname">add_TR</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Data.add_TR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Data.get_TR">
+<tt class="descname">get_TR</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Data.get_TR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Data.insert_TR">
+<tt class="descname">insert_TR</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Data.insert_TR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Data.set_TR">
+<tt class="descname">set_TR</tt><big>(</big><em>TR</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Data.set_TR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.EventIVORN">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">EventIVORN</tt><big>(</big><em>cite=None</em>, <em>valueOf_=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Citations/EventIVORN. The value is the IVORN of the cited event, the
+&#8216;cite&#8217; attribute is the nature of that relationship, choosing
+from &#8216;followup&#8217;, &#8216;supersedes&#8217;, or &#8216;retraction&#8217;.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.EventIVORN.get_cite">
+<tt class="descname">get_cite</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN.get_cite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.EventIVORN.get_valueOf_">
+<tt class="descname">get_valueOf_</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN.get_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.EventIVORN.set_cite">
+<tt class="descname">set_cite</tt><big>(</big><em>cite</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN.set_cite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.EventIVORN.set_valueOf_">
+<tt class="descname">set_valueOf_</tt><big>(</big><em>valueOf_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN.set_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.EventIVORN.validate_citeValues">
+<tt class="descname">validate_citeValues</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.EventIVORN.validate_citeValues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Field">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Field</tt><big>(</big><em>dataType='string'</em>, <em>utype=None</em>, <em>ucd=None</em>, <em>name=None</em>, <em>unit=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="VOEventLib.VOEvent.Field.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_dataType">
+<tt class="descname">get_dataType</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_name">
+<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_ucd">
+<tt class="descname">get_ucd</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_ucd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_unit">
+<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.get_utype">
+<tt class="descname">get_utype</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.get_utype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_dataType">
+<tt class="descname">set_dataType</tt><big>(</big><em>dataType</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_name">
+<tt class="descname">set_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_ucd">
+<tt class="descname">set_ucd</tt><big>(</big><em>ucd</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_ucd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_unit">
+<tt class="descname">set_unit</tt><big>(</big><em>unit</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.set_utype">
+<tt class="descname">set_utype</tt><big>(</big><em>utype</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.set_utype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Field.validate_dataType">
+<tt class="descname">validate_dataType</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Field.validate_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Group">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Group</tt><big>(</big><em>type_=None</em>, <em>name=None</em>, <em>Param=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>What/Group definition: A group is a collection of Params, with name
+and type attributes.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.add_Param">
+<tt class="descname">add_Param</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.add_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.get_Param">
+<tt class="descname">get_Param</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.get_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.get_name">
+<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.get_type">
+<tt class="descname">get_type</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.get_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.insert_Param">
+<tt class="descname">insert_Param</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.insert_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.set_Param">
+<tt class="descname">set_Param</tt><big>(</big><em>Param</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.set_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.set_name">
+<tt class="descname">set_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Group.set_type">
+<tt class="descname">set_type</tt><big>(</big><em>type_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Group.set_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.How">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">How</tt><big>(</big><em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How" title="Permalink to this definition">¶</a></dt>
+<dd><p>How: Instrument Configuration. Built with some Description and
+Reference elements.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.How.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.How.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Inference">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Inference</tt><big>(</big><em>relation=None</em>, <em>probability=None</em>, <em>Name=None</em>, <em>Concept=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Why/Inference: A container for a more nuanced expression, including
+relationships and probability.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.add_Concept">
+<tt class="descname">add_Concept</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.add_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.add_Name">
+<tt class="descname">add_Name</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.add_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_Concept">
+<tt class="descname">get_Concept</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_Name">
+<tt class="descname">get_Name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_probability">
+<tt class="descname">get_probability</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_probability" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.get_relation">
+<tt class="descname">get_relation</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.get_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.insert_Concept">
+<tt class="descname">insert_Concept</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.insert_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.insert_Name">
+<tt class="descname">insert_Name</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.insert_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_Concept">
+<tt class="descname">set_Concept</tt><big>(</big><em>Concept</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_Name">
+<tt class="descname">set_Name</tt><big>(</big><em>Name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_probability">
+<tt class="descname">set_probability</tt><big>(</big><em>probability</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_probability" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.set_relation">
+<tt class="descname">set_relation</tt><big>(</big><em>relation</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.set_relation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Inference.validate_smallFloat">
+<tt class="descname">validate_smallFloat</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Inference.validate_smallFloat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.MemberSpec_">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">MemberSpec_</tt><big>(</big><em>name=''</em>, <em>data_type=''</em>, <em>container=0</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.get_container">
+<tt class="descname">get_container</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.get_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.get_data_type">
+<tt class="descname">get_data_type</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.get_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.get_data_type_chain">
+<tt class="descname">get_data_type_chain</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.get_data_type_chain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.get_name">
+<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.set_container">
+<tt class="descname">set_container</tt><big>(</big><em>container</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.set_container" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.set_data_type">
+<tt class="descname">set_data_type</tt><big>(</big><em>data_type</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.set_data_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MemberSpec_.set_name">
+<tt class="descname">set_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MemberSpec_.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.MixedContainer">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">MixedContainer</tt><big>(</big><em>category</em>, <em>content_type</em>, <em>name</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MixedContainer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="VOEventLib.VOEvent.MixedContainer.getCategory">
+<tt class="descname">getCategory</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MixedContainer.getCategory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MixedContainer.getContenttype">
+<tt class="descname">getContenttype</tt><big>(</big><em>content_type</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MixedContainer.getContenttype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MixedContainer.getName">
+<tt class="descname">getName</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MixedContainer.getName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.MixedContainer.getValue">
+<tt class="descname">getValue</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.MixedContainer.getValue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.ObsDataLocation">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">ObsDataLocation</tt><big>(</big><em>ObservatoryLocation=None</em>, <em>ObservationLocation=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObsDataLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObsDataLocation.get_ObservationLocation">
+<tt class="descname">get_ObservationLocation</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObsDataLocation.get_ObservationLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObsDataLocation.get_ObservatoryLocation">
+<tt class="descname">get_ObservatoryLocation</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObsDataLocation.get_ObservatoryLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObsDataLocation.set_ObservationLocation">
+<tt class="descname">set_ObservationLocation</tt><big>(</big><em>ObservationLocation</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObsDataLocation.set_ObservationLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObsDataLocation.set_ObservatoryLocation">
+<tt class="descname">set_ObservatoryLocation</tt><big>(</big><em>ObservatoryLocation</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObsDataLocation.set_ObservatoryLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.ObservationLocation">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">ObservationLocation</tt><big>(</big><em>AstroCoordSystem=None</em>, <em>AstroCoords=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservationLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservationLocation.get_AstroCoordSystem">
+<tt class="descname">get_AstroCoordSystem</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservationLocation.get_AstroCoordSystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservationLocation.get_AstroCoords">
+<tt class="descname">get_AstroCoords</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservationLocation.get_AstroCoords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservationLocation.set_AstroCoordSystem">
+<tt class="descname">set_AstroCoordSystem</tt><big>(</big><em>AstroCoordSystem</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservationLocation.set_AstroCoordSystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservationLocation.set_AstroCoords">
+<tt class="descname">set_AstroCoords</tt><big>(</big><em>AstroCoords</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservationLocation.set_AstroCoords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">ObservatoryLocation</tt><big>(</big><em>id=None</em>, <em>AstroCoordSystem=None</em>, <em>AstroCoords=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.get_AstroCoordSystem">
+<tt class="descname">get_AstroCoordSystem</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.get_AstroCoordSystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.get_AstroCoords">
+<tt class="descname">get_AstroCoords</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.get_AstroCoords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.get_id">
+<tt class="descname">get_id</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.set_AstroCoordSystem">
+<tt class="descname">set_AstroCoordSystem</tt><big>(</big><em>AstroCoordSystem</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.set_AstroCoordSystem" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.set_AstroCoords">
+<tt class="descname">set_AstroCoords</tt><big>(</big><em>AstroCoords</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.set_AstroCoords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.ObservatoryLocation.set_id">
+<tt class="descname">set_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.ObservatoryLocation.set_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Param">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Param</tt><big>(</big><em>name=None</em>, <em>dataType='string'</em>, <em>value=None</em>, <em>utype=None</em>, <em>ucd=None</em>, <em>unit=None</em>, <em>Description=None</em>, <em>Reference=None</em>, <em>Value=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param" title="Permalink to this definition">¶</a></dt>
+<dd><p>What/Param definition. A Param has name, value, ucd, unit, dataType;
+and may have Description and Reference.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_Value">
+<tt class="descname">get_Value</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_Value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_dataType">
+<tt class="descname">get_dataType</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_name">
+<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_ucd">
+<tt class="descname">get_ucd</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_ucd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_unit">
+<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_utype">
+<tt class="descname">get_utype</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_utype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.get_value">
+<tt class="descname">get_value</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.get_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_Value">
+<tt class="descname">set_Value</tt><big>(</big><em>Value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_Value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_dataType">
+<tt class="descname">set_dataType</tt><big>(</big><em>dataType</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_name">
+<tt class="descname">set_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_ucd">
+<tt class="descname">set_ucd</tt><big>(</big><em>ucd</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_ucd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_unit">
+<tt class="descname">set_unit</tt><big>(</big><em>unit</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_utype">
+<tt class="descname">set_utype</tt><big>(</big><em>utype</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_utype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.set_value">
+<tt class="descname">set_value</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.set_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Param.validate_dataType">
+<tt class="descname">validate_dataType</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Param.validate_dataType" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Position2D">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Position2D</tt><big>(</big><em>unit=None</em>, <em>Name1=None</em>, <em>Name2=None</em>, <em>Value2=None</em>, <em>Error2Radius=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.get_Error2Radius">
+<tt class="descname">get_Error2Radius</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.get_Error2Radius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.get_Name1">
+<tt class="descname">get_Name1</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.get_Name1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.get_Name2">
+<tt class="descname">get_Name2</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.get_Name2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.get_Value2">
+<tt class="descname">get_Value2</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.get_Value2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.get_unit">
+<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.get_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.set_Error2Radius">
+<tt class="descname">set_Error2Radius</tt><big>(</big><em>Error2Radius</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.set_Error2Radius" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.set_Name1">
+<tt class="descname">set_Name1</tt><big>(</big><em>Name1</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.set_Name1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.set_Name2">
+<tt class="descname">set_Name2</tt><big>(</big><em>Name2</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.set_Name2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.set_Value2">
+<tt class="descname">set_Value2</tt><big>(</big><em>Value2</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.set_Value2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position2D.set_unit">
+<tt class="descname">set_unit</tt><big>(</big><em>unit</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position2D.set_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Position3D">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Position3D</tt><big>(</big><em>unit=None</em>, <em>Name1=None</em>, <em>Name2=None</em>, <em>Name3=None</em>, <em>Value3=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.get_Name1">
+<tt class="descname">get_Name1</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.get_Name1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.get_Name2">
+<tt class="descname">get_Name2</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.get_Name2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.get_Name3">
+<tt class="descname">get_Name3</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.get_Name3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.get_Value3">
+<tt class="descname">get_Value3</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.get_Value3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.get_unit">
+<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.get_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.set_Name1">
+<tt class="descname">set_Name1</tt><big>(</big><em>Name1</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.set_Name1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.set_Name2">
+<tt class="descname">set_Name2</tt><big>(</big><em>Name2</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.set_Name2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.set_Name3">
+<tt class="descname">set_Name3</tt><big>(</big><em>Name3</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.set_Name3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.set_Value3">
+<tt class="descname">set_Value3</tt><big>(</big><em>Value3</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.set_Value3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Position3D.set_unit">
+<tt class="descname">set_unit</tt><big>(</big><em>unit</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Position3D.set_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Reference">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Reference</tt><big>(</big><em>mimetype=None</em>, <em>meaning=None</em>, <em>type_=None</em>, <em>uri=None</em>, <em>valueOf_=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference: External Content. The payload is the uri, and the
+&#8216;meaning&#8217; describes the nature of the data under that uri. The
+Reference can also have a mimetype.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.get_meaning">
+<tt class="descname">get_meaning</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.get_meaning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.get_mimetype">
+<tt class="descname">get_mimetype</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.get_mimetype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.get_type">
+<tt class="descname">get_type</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.get_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.get_uri">
+<tt class="descname">get_uri</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.get_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.get_valueOf_">
+<tt class="descname">get_valueOf_</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.get_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.set_meaning">
+<tt class="descname">set_meaning</tt><big>(</big><em>meaning</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.set_meaning" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.set_mimetype">
+<tt class="descname">set_mimetype</tt><big>(</big><em>mimetype</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.set_mimetype" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.set_type">
+<tt class="descname">set_type</tt><big>(</big><em>type_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.set_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.set_uri">
+<tt class="descname">set_uri</tt><big>(</big><em>uri</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.set_uri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Reference.set_valueOf_">
+<tt class="descname">set_valueOf_</tt><big>(</big><em>valueOf_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Reference.set_valueOf_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.TR">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">TR</tt><big>(</big><em>TD=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TR" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="VOEventLib.VOEvent.TR.add_TD">
+<tt class="descname">add_TD</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TR.add_TD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TR.get_TD">
+<tt class="descname">get_TD</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TR.get_TD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TR.insert_TD">
+<tt class="descname">insert_TD</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TR.insert_TD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TR.set_TD">
+<tt class="descname">set_TD</tt><big>(</big><em>TD</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TR.set_TD" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Table">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Table</tt><big>(</big><em>type_=None</em>, <em>name=None</em>, <em>Description=None</em>, <em>Reference=None</em>, <em>Param=None</em>, <em>Field=None</em>, <em>Data=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table" title="Permalink to this definition">¶</a></dt>
+<dd><p>What/Table definition. This small Table has Fields for the column
+definitions, and Data to hold the table data, with TR for row
+and TD for value of a table cell.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.add_Field">
+<tt class="descname">add_Field</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.add_Field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.add_Param">
+<tt class="descname">add_Param</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.add_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_Data">
+<tt class="descname">get_Data</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_Data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_Field">
+<tt class="descname">get_Field</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_Field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_Param">
+<tt class="descname">get_Param</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_name">
+<tt class="descname">get_name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.get_type">
+<tt class="descname">get_type</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.get_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.insert_Field">
+<tt class="descname">insert_Field</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.insert_Field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.insert_Param">
+<tt class="descname">insert_Param</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.insert_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_Data">
+<tt class="descname">set_Data</tt><big>(</big><em>Data</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_Data" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_Field">
+<tt class="descname">set_Field</tt><big>(</big><em>Field</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_Field" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_Param">
+<tt class="descname">set_Param</tt><big>(</big><em>Param</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_name">
+<tt class="descname">set_name</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Table.set_type">
+<tt class="descname">set_type</tt><big>(</big><em>type_</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Table.set_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Time">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Time</tt><big>(</big><em>unit=None</em>, <em>TimeInstant=None</em>, <em>Error=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.add_Error">
+<tt class="descname">add_Error</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.add_Error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.add_TimeInstant">
+<tt class="descname">add_TimeInstant</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.add_TimeInstant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.get_Error">
+<tt class="descname">get_Error</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.get_Error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.get_TimeInstant">
+<tt class="descname">get_TimeInstant</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.get_TimeInstant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.get_unit">
+<tt class="descname">get_unit</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.get_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.insert_Error">
+<tt class="descname">insert_Error</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.insert_Error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.insert_TimeInstant">
+<tt class="descname">insert_TimeInstant</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.insert_TimeInstant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.set_Error">
+<tt class="descname">set_Error</tt><big>(</big><em>Error</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.set_Error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.set_TimeInstant">
+<tt class="descname">set_TimeInstant</tt><big>(</big><em>TimeInstant</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.set_TimeInstant" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Time.set_unit">
+<tt class="descname">set_unit</tt><big>(</big><em>unit</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Time.set_unit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.TimeInstant">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">TimeInstant</tt><big>(</big><em>ISOTime=None</em>, <em>TimeOffset=None</em>, <em>TimeScale=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.get_ISOTime">
+<tt class="descname">get_ISOTime</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.get_ISOTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.get_TimeOffset">
+<tt class="descname">get_TimeOffset</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.get_TimeOffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.get_TimeScale">
+<tt class="descname">get_TimeScale</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.get_TimeScale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.set_ISOTime">
+<tt class="descname">set_ISOTime</tt><big>(</big><em>ISOTime</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.set_ISOTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.set_TimeOffset">
+<tt class="descname">set_TimeOffset</tt><big>(</big><em>TimeOffset</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.set_TimeOffset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.TimeInstant.set_TimeScale">
+<tt class="descname">set_TimeScale</tt><big>(</big><em>TimeScale</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.TimeInstant.set_TimeScale" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.VOEvent">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">VOEvent</tt><big>(</big><em>version=None</em>, <em>role='observation'</em>, <em>ivorn=None</em>, <em>Who=None</em>, <em>What=None</em>, <em>WhereWhen=None</em>, <em>How=None</em>, <em>Why=None</em>, <em>Citations=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>VOEvent is the root element for describing observations of immediate
+astronomical events. For more information, see
+<a class="reference external" href="http://www.ivoa.net/twiki/bin/view/IVOA/IvoaVOEvent">http://www.ivoa.net/twiki/bin/view/IVOA/IvoaVOEvent</a>. The event
+consists of at most one of each of: Who, What, WhereWhen, How,
+Why, Citations, Description, and Reference.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_Citations">
+<tt class="descname">get_Citations</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_Citations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_How">
+<tt class="descname">get_How</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_How" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_What">
+<tt class="descname">get_What</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_What" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_WhereWhen">
+<tt class="descname">get_WhereWhen</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_WhereWhen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_Who">
+<tt class="descname">get_Who</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_Who" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_Why">
+<tt class="descname">get_Why</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_Why" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_ivorn">
+<tt class="descname">get_ivorn</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_ivorn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_role">
+<tt class="descname">get_role</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_role" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.get_version">
+<tt class="descname">get_version</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.get_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_Citations">
+<tt class="descname">set_Citations</tt><big>(</big><em>Citations</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_Citations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_How">
+<tt class="descname">set_How</tt><big>(</big><em>How</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_How" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_What">
+<tt class="descname">set_What</tt><big>(</big><em>What</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_What" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_WhereWhen">
+<tt class="descname">set_WhereWhen</tt><big>(</big><em>WhereWhen</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_WhereWhen" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_Who">
+<tt class="descname">set_Who</tt><big>(</big><em>Who</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_Who" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_Why">
+<tt class="descname">set_Why</tt><big>(</big><em>Why</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_Why" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_ivorn">
+<tt class="descname">set_ivorn</tt><big>(</big><em>ivorn</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_ivorn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_role">
+<tt class="descname">set_role</tt><big>(</big><em>role</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_role" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.set_version">
+<tt class="descname">set_version</tt><big>(</big><em>version</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.set_version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.VOEvent.validate_roleValues">
+<tt class="descname">validate_roleValues</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.VOEvent.validate_roleValues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Value2">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Value2</tt><big>(</big><em>C1=None</em>, <em>C2=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value2.get_C1">
+<tt class="descname">get_C1</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value2.get_C1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value2.get_C2">
+<tt class="descname">get_C2</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value2.get_C2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value2.set_C1">
+<tt class="descname">set_C1</tt><big>(</big><em>C1</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value2.set_C1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value2.set_C2">
+<tt class="descname">set_C2</tt><big>(</big><em>C2</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value2.set_C2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Value3">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Value3</tt><big>(</big><em>C1=None</em>, <em>C2=None</em>, <em>C3=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3" title="Permalink to this definition">¶</a></dt>
+<dd><p>Part of WhereWhen</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.get_C1">
+<tt class="descname">get_C1</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.get_C1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.get_C2">
+<tt class="descname">get_C2</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.get_C2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.get_C3">
+<tt class="descname">get_C3</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.get_C3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.set_C1">
+<tt class="descname">set_C1</tt><big>(</big><em>C1</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.set_C1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.set_C2">
+<tt class="descname">set_C2</tt><big>(</big><em>C2</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.set_C2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Value3.set_C3">
+<tt class="descname">set_C3</tt><big>(</big><em>C3</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Value3.set_C3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.What">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">What</tt><big>(</big><em>Param=None</em>, <em>Group=None</em>, <em>Table=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What" title="Permalink to this definition">¶</a></dt>
+<dd><p>What: Event Characterization. This is the part of the data model
+that is chosen by the Authoer of the event rather than the IVOA.
+There can be Params, that may be in Groups, and Tables, and
+simpleTimeSeries. There can also be Description and Reference as
+with most VOEvent elements.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.add_Group">
+<tt class="descname">add_Group</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.add_Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.add_Param">
+<tt class="descname">add_Param</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.add_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.add_Table">
+<tt class="descname">add_Table</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.add_Table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.get_Group">
+<tt class="descname">get_Group</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.get_Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.get_Param">
+<tt class="descname">get_Param</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.get_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.get_Table">
+<tt class="descname">get_Table</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.get_Table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.insert_Group">
+<tt class="descname">insert_Group</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.insert_Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.insert_Param">
+<tt class="descname">insert_Param</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.insert_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.insert_Table">
+<tt class="descname">insert_Table</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.insert_Table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.set_Group">
+<tt class="descname">set_Group</tt><big>(</big><em>Group</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.set_Group" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.set_Param">
+<tt class="descname">set_Param</tt><big>(</big><em>Param</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.set_Param" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.What.set_Table">
+<tt class="descname">set_Table</tt><big>(</big><em>Table</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.What.set_Table" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.WhereWhen">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">WhereWhen</tt><big>(</big><em>id=None</em>, <em>ObsDataLocation=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen" title="Permalink to this definition">¶</a></dt>
+<dd><p>WhereWhen: Space-Time Coordinates. Lots and lots of elements here,
+but the import is that each event has these: observatory,
+coord_system, time, timeError, longitude, latitude, posError.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.get_ObsDataLocation">
+<tt class="descname">get_ObsDataLocation</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.get_ObsDataLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.get_id">
+<tt class="descname">get_id</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.get_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.set_ObsDataLocation">
+<tt class="descname">set_ObsDataLocation</tt><big>(</big><em>ObsDataLocation</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.set_ObsDataLocation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.WhereWhen.set_id">
+<tt class="descname">set_id</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.WhereWhen.set_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Who">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Who</tt><big>(</big><em>AuthorIVORN=None</em>, <em>Date=None</em>, <em>Description=None</em>, <em>Reference=None</em>, <em>Author=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who" title="Permalink to this definition">¶</a></dt>
+<dd><p>Who: Curation Metadata</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.get_Author">
+<tt class="descname">get_Author</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.get_Author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.get_AuthorIVORN">
+<tt class="descname">get_AuthorIVORN</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.get_AuthorIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.get_Date">
+<tt class="descname">get_Date</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.get_Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.set_Author">
+<tt class="descname">set_Author</tt><big>(</big><em>Author</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.set_Author" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.set_AuthorIVORN">
+<tt class="descname">set_AuthorIVORN</tt><big>(</big><em>AuthorIVORN</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.set_AuthorIVORN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.set_Date">
+<tt class="descname">set_Date</tt><big>(</big><em>Date</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.set_Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Who.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Who.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="VOEventLib.VOEvent.Why">
+<em class="property">class </em><tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">Why</tt><big>(</big><em>importance=None</em>, <em>expires=None</em>, <em>Name=None</em>, <em>Concept=None</em>, <em>Inference=None</em>, <em>Description=None</em>, <em>Reference=None</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why" title="Permalink to this definition">¶</a></dt>
+<dd><p>Why: Initial Scientific Assessment. Can make simple
+Concept/Name/Desc/Ref for the inference or use multiple
+Inference containers for more semantic sophistication.</p>
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.add_Concept">
+<tt class="descname">add_Concept</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.add_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.add_Description">
+<tt class="descname">add_Description</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.add_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.add_Inference">
+<tt class="descname">add_Inference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.add_Inference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.add_Name">
+<tt class="descname">add_Name</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.add_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.add_Reference">
+<tt class="descname">add_Reference</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.add_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_Concept">
+<tt class="descname">get_Concept</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_Description">
+<tt class="descname">get_Description</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_Inference">
+<tt class="descname">get_Inference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_Inference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_Name">
+<tt class="descname">get_Name</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_Reference">
+<tt class="descname">get_Reference</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_expires">
+<tt class="descname">get_expires</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_expires" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.get_importance">
+<tt class="descname">get_importance</tt><big>(</big><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.get_importance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.insert_Concept">
+<tt class="descname">insert_Concept</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.insert_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.insert_Description">
+<tt class="descname">insert_Description</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.insert_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.insert_Inference">
+<tt class="descname">insert_Inference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.insert_Inference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.insert_Name">
+<tt class="descname">insert_Name</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.insert_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.insert_Reference">
+<tt class="descname">insert_Reference</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.insert_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_Concept">
+<tt class="descname">set_Concept</tt><big>(</big><em>Concept</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_Concept" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_Description">
+<tt class="descname">set_Description</tt><big>(</big><em>Description</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_Description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_Inference">
+<tt class="descname">set_Inference</tt><big>(</big><em>Inference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_Inference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_Name">
+<tt class="descname">set_Name</tt><big>(</big><em>Name</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_Name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_Reference">
+<tt class="descname">set_Reference</tt><big>(</big><em>Reference</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_Reference" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_expires">
+<tt class="descname">set_expires</tt><big>(</big><em>expires</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_expires" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="VOEventLib.VOEvent.Why.set_importance">
+<tt class="descname">set_importance</tt><big>(</big><em>importance</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.Why.set_importance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.get_all_text_">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">get_all_text_</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.get_all_text_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.get_root_tag">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">get_root_tag</tt><big>(</big><em>node</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.get_root_tag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.parse">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">parse</tt><big>(</big><em>inFileName</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.parseLiteral">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">parseLiteral</tt><big>(</big><em>inFileName</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.parseLiteral" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.parseString">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">parseString</tt><big>(</big><em>inString</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.parseString" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.parsexml_">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">parsexml_</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.parsexml_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="VOEventLib.VOEvent.showIndent">
+<tt class="descclassname">VOEventLib.VOEvent.</tt><tt class="descname">showIndent</tt><big>(</big><em>outfile</em>, <em>level</em><big>)</big><a class="headerlink" href="#VOEventLib.VOEvent.showIndent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to VOEventLib&#8217;s documentation!</a><ul>
+<li><a class="reference internal" href="#module-VOEventLib.Vutil">The Vutil utility library</a></li>
+<li><a class="reference internal" href="#module-VOEventLib.VOEvent">The VOEvent base library</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="#">VOEventLib v0.3 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010, Roy Williams and Dave Kuhlman.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0b2.
+    </div>
+  </body>
+</html>
