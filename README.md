@@ -1,2 +1,2 @@
 # VOEventLib
-Python library to read, modify, and create VOEvent
+Python library to read, modify, and create VOEvents.
