@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<voe:VOEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:voe="http://www.ivoa.net/xml/VOEvent/v2.0"
+xsi:schemaLocation="http://www.ivoa.net/xml/VOEvent/v2.0 http://www.cacr.caltech.edu/~roy/VOEvent/VOEvent2-110220.xsd"
+ version="2.0" role="test" ivorn="ivo://silly/billy#8df63j29dj8shj">
+    <Who>
+        <Author>
+            <contactName>Donald Duck and Goofy</contactName>
+            <contactEmail>dduck@disney.com</contactEmail>
+        </Author>
+    </Who>
+    <What>
+        <Param name="objid" dataType="string" value="8df63j29dj8shj" ucd="meta.id">
+            <Description>The object ID assigned by the Sillybilly survey</Description>
+        </Param>
+        <Param name="magnitude" dataType="float" value="13.34" ucd="phot.mag" unit="mag">
+            <Description>The magnitude (brightest V-band) of the moving object</Description>
+        </Param>
+        <Group name="Animals">
+            <Param name="Tiger" dataType="float" value="1.234"/>
+            <Param name="Lion" dataType="float" value="1.234"/>
+        </Group>
+        <Table name="Tudor Monarchs">
+            <Description>Accession and death for the Tudor monarchs</Description>
+            <Param name="House" dataType="string" value="Tudor" ucd="meta.text"/>
+            <Field dataType="string" name="Name"/>
+            <Field dataType="string" name="Start Reign"/>
+            <Field dataType="string" name="End Reign"/>
+            <Field dataType="string" name="Cause of Death"/>
+            <Data>
+                <TR>
+                    <TD>Henry VII</TD>
+                    <TD>1485 Aug 22</TD>
+                    <TD>1509 Apr 21</TD>
+                    <TD>asthma &amp; gout</TD>
+                </TR>
+                <TR>
+                    <TD>Henry VIII</TD>
+                    <TD>1509 Apr 21</TD>
+                    <TD>1547</TD>
+                    <TD>syphilis &amp; gluttony</TD>
+                </TR>
+                <TR>
+                    <TD>Edward VI</TD>
+                    <TD>1547 Jan 28</TD>
+                    <TD>1553</TD>
+                    <TD>TB &amp; congenital syphilis</TD>
+                </TR>
+                <TR>
+                    <TD>Lady Jane Grey</TD>
+                    <TD>1553 Jul 10</TD>
+                    <TD>1553 Jul 19</TD>
+                    <TD>dethroned; beheaded 1554</TD>
+                </TR>
+                <TR>
+                    <TD>Mary I</TD>
+                    <TD>1553 Jul 6</TD>
+                    <TD>1558 Nov 17</TD>
+                    <TD>influenza</TD>
+                </TR>
+                <TR>
+                    <TD>Elizabeth I</TD>
+                    <TD>1558 Nov 17</TD>
+                    <TD>1603 Mar 24</TD>
+                    <TD>cold, tonsilitis, illness</TD>
+                </TR>
+            </Data>
+        </Table>
+    </What>
+    <WhereWhen>
+        <ObsDataLocation>
+            <ObservatoryLocation id="Keck"/>
+            <ObservationLocation>
+                <AstroCoordSystem id="UTC-FK5-GEO"/>
+                <AstroCoords coord_system_id="UTC-FK5-GEO">
+                    <Time>
+                        <TimeInstant>
+                            <ISOTime>1918-11-11T11:11:11.0123</ISOTime>
+                        </TimeInstant>
+                    </Time>
+                    <Position2D>
+                        <Value2>
+                            <C1>123.450000</C1>
+                            <C2>67.890000</C2>
+                        </Value2>
+                        <Error2Radius>0.010000</Error2Radius>
+                    </Position2D>
+                </AstroCoords>
+            </ObservationLocation>
+        </ObsDataLocation>
+    </WhereWhen>
+    <Citations>
+        <EventIVORN cite="followup">ivo:silly/billy#89474</EventIVORN>
+        <EventIVORN cite="followup">ivo:silly/billy#89475</EventIVORN>
+    </Citations>
+    <Description>Report of some irrelevant information</Description>
+</voe:VOEvent>
+
+

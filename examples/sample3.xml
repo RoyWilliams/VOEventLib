@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<voe:VOEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:voe="http://www.ivoa.net/xml/VOEvent/v2.0"
+xsi:schemaLocation="http://www.ivoa.net/xml/VOEvent/v2.0 http://www.cacr.caltech.edu/~roy/VOEvent/VOEvent2-110220.xsd"
+ version="2.0" role="test" ivorn="ivo://testing#111">
+    <Who>
+        <Author>
+            <contactName>Donald Duck</contactName>
+        </Author>
+    </Who>
+    <What>
+        <Param name="apple" dataType="string" value="123"/>
+        <Param name="orange" dataType="string" value="124"/>
+    </What>
+</voe:VOEvent>
+
+
